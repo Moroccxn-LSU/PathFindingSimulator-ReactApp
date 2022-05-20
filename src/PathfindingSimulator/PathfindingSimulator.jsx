@@ -23,18 +23,18 @@ export default class PathfindingSimulator extends Component {
 		this.setState({ grid });
 	}
 
-	Mouse_Down(row, col) {
+	handleMouseDown(row, col) {
 		const newGrid = getGrid_withWalls(this.state.grid, row, col);
 		this.setState({ grid: newGrid, mouseIsPressed: true });
 	}
 
-	Mouse_Enter(row, col) {
+	handleMouseEnter(row, col) {
 		if (!this.state.mouseIsPressed) { return; }
 		const newGrid = getGrid_withWalls(this.state.grid, row, col);
 		this.setState({ grid: newGrid });
 	}
 
-	Mouse_Up() {
+	handleMouseUp() {
 		this.setState({ mouseIsPressed: false });
 	}
 
@@ -63,7 +63,7 @@ export default class PathfindingSimulator extends Component {
 	}
 
 	dijkstraVisualization() {
-		const { grid } = this.state;
+		const {grid} = this.state;
 		const startNode = grid[START_NODE_ROW][START_NODE_COL];
 		const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
 		const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
@@ -72,7 +72,7 @@ export default class PathfindingSimulator extends Component {
 	}
 
 	render() {
-		const { grid, mouseIsPressed } = this.state;
+		const {grid, mouseIsPressed} = this.state;
 
 		return (
 			<>
@@ -93,9 +93,9 @@ export default class PathfindingSimulator extends Component {
 											isStartNode={isStartNode}
 											isWall={isWall}
 											mouseIsPressed={mouseIsPressed}
-											onMouseDown={(row, col) => this.Mouse_Down(row, col)}
-											onMouseEnter={(row, col) => this.Mouse_Enter(row, col)}
-											onMouseUp={() => this.Mouse_Up()}
+											onMouseDown={(row, col) => this.handleMouseDown(row, col)}
+											onMouseEnter={(row, col) => this.handleMouseEnter(row, col)}
+											onMouseUp={() => this.handleMouseUp()}
 											row={row}>
 										</Node>
 									);

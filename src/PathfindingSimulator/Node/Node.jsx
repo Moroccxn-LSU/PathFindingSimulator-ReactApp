@@ -5,7 +5,16 @@ import './Node.css';
 export default class Node extends Component {
     
     render() {
-    const { col, isFinishNode, isStartNode, isWall, onMouseDown, onMouseEnter, onMouseUp, row } = this.props;
+        const {
+            col,
+            isFinishNode,
+            isStartNode,
+            isWall,
+            onMouseDown,
+            onMouseEnter,
+            onMouseUp,
+            row,
+        } = this.props;
         const extraClassName = isFinishNode
             ? 'node-finish'
             : isStartNode
