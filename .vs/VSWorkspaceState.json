@@ -7,6 +7,6 @@
     "\\src\\PathfindingSimulator",
     "\\src\\PathfindingSimulator\\Node"
   ],
-  "SelectedNode": "\\src\\App.css",
+  "SelectedNode": "\\src\\Algorithms\\dijkstra.js",
   "PreviewInSolutionExplorer": false
 }

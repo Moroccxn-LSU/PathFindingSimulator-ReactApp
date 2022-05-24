@@ -62,13 +62,13 @@ function getNodes(grid) {
 }
 
 export function getShortestPath(finishNode) {
-    const ShortestPath = [];
+    const nodesShortestPath = [];
     let currentNode = finishNode;
 
     while (currentNode !== null) {
-        ShortestPath.unshift(currentNode);
+        nodesShortestPath.unshift(currentNode);
         currentNode = currentNode.previousNode;
     }
 
-    return ShortestPath;
+    return nodesShortestPath;
 }

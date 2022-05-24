@@ -6,11 +6,11 @@
 }
 
 .node-finish {
-    background-color: red;
+    background-color: darkred;
 }
 
 .node-start {
-    background-color: green;
+    background-color: rgb(0, 128, 0, 0.65);
 }
 
 .node-visited {
@@ -47,7 +47,7 @@
 }
 
 .node-wall {
-    background-color: rgb(12, 53, 71);
+    background-color: rgb(26, 33, 76);
 }
 
 .node-shortest-path {

@@ -38,11 +38,11 @@ export default class PathfindingSimulator extends Component {
 		this.setState({ mouseIsPressed: false });
 	}
 
-	searchAnimation(visitedNodesInOrder, ShortestPath) {
+	searchAnimation(visitedNodesInOrder, theShortestPath) {
 		for (let i = 0; i <= visitedNodesInOrder.length; i++) {
 			if (i === visitedNodesInOrder.length) {
 				setTimeout(() => {
-					this.pathFound(ShortestPath);
+					this.pathFound(theShortestPath);
 				}, 10 * i);
 				return;
 			}
@@ -53,10 +53,10 @@ export default class PathfindingSimulator extends Component {
 		}
 	}
 
-	pathFound(ShortestPath) {
-		for (let i = 0; i < ShortestPath.length; i++) {
+	pathFound(theShortestPath) {
+		for (let i = 0; i < theShortestPath.length; i++) {
 			setTimeout(() => {
-				const node = ShortestPath[i];
+				const node = theShortestPath[i];
 				document.getElementById(`node-${node.row}-${node.col}`).className = 'node node-shortest-path';
 			}, 50 * i);
 		}
@@ -67,8 +67,8 @@ export default class PathfindingSimulator extends Component {
 		const startNode = grid[START_NODE_ROW][START_NODE_COL];
 		const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
 		const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-		const ShortestPath = getShortestPath(finishNode);
-		this.searchAnimation(visitedNodesInOrder, ShortestPath);
+		const theShortestPath = getShortestPath(finishNode);
+		this.searchAnimation(visitedNodesInOrder, theShortestPath);
 	}
 
 	render() {
@@ -76,7 +76,7 @@ export default class PathfindingSimulator extends Component {
 
 		return (
 			<>
-				<button onClick={() => this.dijkstraVisualization()}>
+				<button onClick={() => this.dijkstraVisualization}>
 					Visualize Dijkstra's Algorithm
 				</button>
 				<div className="grid">
