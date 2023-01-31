@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Node from './Node/Node';
 import { dijkstra, getShortestPath } from '../Algorithms/dijkstra';
+import { aStarPathfinding } from '../Algorithms/A-star';
 import './PathfindingSimulator.css'
 
 //Starting Points for StartNode and FinishNode
